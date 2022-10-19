@@ -1,10 +1,36 @@
-import React from "react";
-function NotFound() {
+import { css } from '@emotion/react'
+import PageContainer from "../layout/container/pageContainer";
+
+const blankError = css`
+  font-size: 40px;
+`;
+
+function NotFound(){
   return (
-    <div>
-        죄송 페이지 못 찾음
-    </div>
-  );
+    <PageContainer>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+      <div css = {blankError}>
+        잘못된 접근을 하지 마세요.
+      </div>
+    </PageContainer>
+  )
 }
 
 export default NotFound;

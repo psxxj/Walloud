@@ -1,11 +1,13 @@
 import React from "react";
+import NavBar from "../../component/navigator/navBar";
 
-function PageContainer(props: any) {
+function PageContainer(props: any){
   return (
-    <div>
-        First Class
-    </div>
-  );
+    <>
+      <NavBar />
+      {props.children}
+    </>
+  )
 }
 
 export default PageContainer;

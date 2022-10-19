@@ -4,7 +4,7 @@ import { BrowserRouter  } from 'react-router-dom'
 import './index.css'
 import MainRouter from './router/mainRouter'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('source') as HTMLElement).render(
   <BrowserRouter>
     <MainRouter />
   </BrowserRouter>
