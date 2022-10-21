@@ -1,4 +1,5 @@
 import React from "react";
+import FootBar from "../../component/footer/footBar";
 import NavBar from "../../component/navigator/navBar";
 
 function PageContainer(props: any){
@@ -6,6 +7,7 @@ function PageContainer(props: any){
     <>
       <NavBar />
       {props.children}
+      <FootBar />
     </>
   )
 }

@@ -9,44 +9,50 @@ const navStyle = css`
     top: 0;
     height: 70px;
     min-width: 100%;
-    padding: 5px 20px;
+    padding: 5px 0px;
     display: inline-flex;
     z-index: 1000;
     transition: 1s ease;
     align-items: center;
-    border-bottom: 2px solid black;
-    gap: 20px;
-    &> {
+    &>* {
         display: inline-flex;
         align-items: center;
+        padding: 0 20px;
+        &>img {
+            height: 65px;
+        }
     }
     `
 let navMode = {
     'top': css` 
         background-color: transparent;
         border-color: white;
+        &> * > a {
+            color: white;
+        }
     `,
     'down': css`
         position: fixed;
         top: -100px;
+        &> * > a {
+            color: black;
+        }
     `,
     'up': css`
         background-color: white;
         border-color: black;
+        &> * > a {
+            color: black;
+        }
     `,
 }
-
-const logoStyle = css`
-    height: 65px;
-`
 
 function NavBar(){
     let screenMode = ScrollNavi();
     return (
     <div css = {[navStyle, navMode[screenMode]]}>
         <a href='/'>
-            <img src = {screenMode === 'up' ? 'source/assets/logo-black.png' : 'source/assets/logo-white.png'}
-            css = {logoStyle} />
+            <img src = {screenMode === 'up' ? 'source/assets/logo-black.png' : 'source/assets/logo-white.png'}/>
         </a>
         <NavMenu />
         <NavUtil />

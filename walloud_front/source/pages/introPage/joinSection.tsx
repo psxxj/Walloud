@@ -7,7 +7,7 @@ const joinSection = css`
 function JoinSection(){
     return (
         <div css = {joinSection}>
-            레드 모드
+            여기서 어플리케이션을 받으세요 넣기 ~~
         </div>
     )
 }

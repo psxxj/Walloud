@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"
 
 const NavUtilWrapper = css`
     display: inline-flex;
-    gap: 10px;
+    gap: 20px;
+    float: right;
     &>a {
-        color: black;
-        background-color: white;
         padding: 10px;
         border-radius: 10px;
+        border: 2px solid;
     }
 `
 

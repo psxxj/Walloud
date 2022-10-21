@@ -2,12 +2,13 @@ import { css } from "@emotion/react"
 import { Link } from "react-router-dom"
 
 const NavMenuWrapper = css`
-    display: inline-flex;
     float: right;
     gap: 10px;
+    flex-grow: 1;
+    font-size: 18px;
     &>a {
         padding: 0px 7px;
-        border-right: 5px solid white;
+        border-right: 5px solid;
         &:hover {
             
         }
