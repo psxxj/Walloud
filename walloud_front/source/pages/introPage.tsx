@@ -1,4 +1,4 @@
-import {css, jsx} from '@emotion/react'
+import { css } from '@emotion/react'
 import PageContainer from "../layout/container/pageContainer";
 import JoinSection from './introPage/joinSection';
 import VisualSection from "./introPage/visualSection";
