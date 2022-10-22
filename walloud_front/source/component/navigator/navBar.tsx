@@ -60,11 +60,12 @@ function NavBar(){
     <div css = {[navStyle, navMode[screenMode]]}>
         <a href='/'>
             <img src = 'source/assets/logo-main.svg'/>
-        </a>
+        </a> 
         <NavMenu />
         <NavUtil />
     </div>
     );
 }
+
 
 export default NavBar;
