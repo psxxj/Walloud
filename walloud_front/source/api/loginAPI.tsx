@@ -2,10 +2,10 @@ import axios from "axios"
 
 const LoginAPI = async (email: string, password: string) => {
     await axios
-        .post("/api/login", {
-            input_id: email,
-            input_password: password,
-         })
+        .post("/api/login", null, { params: {
+            Email: email,
+            Password: password,
+        }})
         .then((response) => {
             console.log(response.data);
             alert("Login Success!");

@@ -30,11 +30,6 @@ public class UserController {
     private final TravelService travelservice;
     private final PersonService personservice;
 
-    @GetMapping("/halo") //just for test
-    public String ddd() {
-        return "He";
-    }
-
     @PostMapping(value = "/Register")
     public ResponseEntity<UserDto.Response> createUser(@RequestBody Map map) {
         if (!userservice.checkIsEmailRegistered(map.get("user_email").toString())) {
@@ -49,10 +44,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    public int login(@RequestBody Map map) {
-        UserDto.Login loginUser = new UserDto.Login(
-                map.get("input_id").toString(),
-                map.get("input_password").toString());
+    public int login(UserDto.Login loginUser) {
         return userservice.login(loginUser);
     }
 
