@@ -15,8 +15,8 @@ const NavUtilWrapper = css`
 function NavUtil(){
     return (
         <div css = {NavUtilWrapper}>
-            <Link to="/login"> 로그인 </Link>
-            <Link to="/register"> 회원가입 </Link>
+            <Link to="/signin"> 로그인 </Link>
+            <Link to="/signup"> 회원가입 </Link>
         </div>
     )
 }

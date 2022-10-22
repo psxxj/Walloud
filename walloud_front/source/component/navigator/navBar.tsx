@@ -23,17 +23,24 @@ const navStyle = css`
         }
     }
     `
-let navMode = {
+let navMode: {[index: string]:any} = {
     'top': css` 
         background-color: transparent;
         border-color: white;
-        &> * > a {
-            color: white;
-        }
+        color: white;
+        &>* {
+            &>img {
+                filter: invert();
+            }
+            &> a {
+                color: white;
+            }
+        } 
     `,
     'down': css`
         position: fixed;
         top: -100px;
+        color: black;
         &> * > a {
             color: black;
         }
@@ -52,7 +59,7 @@ function NavBar(){
     return (
     <div css = {[navStyle, navMode[screenMode]]}>
         <a href='/'>
-            <img src = {screenMode === 'up' ? 'source/assets/logo-black.png' : 'source/assets/logo-white.png'}/>
+            <img src = 'source/assets/logo-main.svg'/>
         </a>
         <NavMenu />
         <NavUtil />
