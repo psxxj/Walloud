@@ -1,6 +1,4 @@
 package com.spring.mydiv.Controller;
-
-import java.util.List;
 import java.util.Map;
 
 import com.spring.mydiv.Dto.*;
@@ -9,19 +7,13 @@ import com.spring.mydiv.Service.PersonService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.spring.mydiv.Entity.Travel;
 import com.spring.mydiv.Service.TravelService;
 import com.spring.mydiv.Service.UserService;
 
 import lombok.RequiredArgsConstructor;
-
 import static com.spring.mydiv.Code.ErrorCode.*;
 import static java.lang.Boolean.TRUE;
 
-/**
- * @author 12nov
- */
-//@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -30,15 +22,9 @@ public class UserController {
     private final TravelService travelservice;
     private final PersonService personservice;
 
-    @PostMapping(value = "/Register")
-    public ResponseEntity<UserDto.Response> createUser(@RequestBody Map map) {
-        if (!userservice.checkIsEmailRegistered(map.get("user_email").toString())) {
-            UserDto.Request request = new UserDto.Request(
-                    map.get("user_name").toString(),
-                    map.get("user_email").toString(),
-                    map.get("user_password").toString(),
-                    map.get("user_account").toString(),
-                    map.get("user_bank").toString());
+    @PostMapping(value = "/register")
+    public ResponseEntity<UserDto.Response> createUser(UserDto.Request request) {
+        if (!userservice.checkIsEmailRegistered(request.getEmail())) {
             return ResponseEntity.ok(userservice.createUser(request));
         } else throw new DefaultException(ALREADY_REGISTERED);
     }

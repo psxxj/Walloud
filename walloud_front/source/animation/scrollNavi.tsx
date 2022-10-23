@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 
+// 'top', 'down', 'up'
 function ScrollNavi(){
     const [scrollMode, setScrollMode] = useState('top');
     let beforeScrollY = 0;
