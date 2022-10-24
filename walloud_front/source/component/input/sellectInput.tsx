@@ -15,7 +15,7 @@ function SellectInput({setType, typeList}: IProps){
     return (
         <select css = {SellectInputStyle} onChange={onInputHandler}>
             {typeList.map((component, index) => (
-                <option value = {component}>
+                <option value = {component} key = {index}>
                     {component}
                 </option>
             ))}

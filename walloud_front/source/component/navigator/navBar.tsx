@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import ScrollNavi from '../../animation/scrollNavi';
+import Color from '../../layout/globalStyle/globalColor';
 import NavMenu from './navMenu';
 import NavUtil from './navUtil';
 
@@ -21,36 +22,32 @@ const navStyle = css`
         &>img {
             height: 65px;
         }
+        &>a {
+            color: black;
+            &:hover {
+                color: ${Color.gray05};
+            }
+        }
     }
     `
 let navMode: {[index: string]:any} = {
     'top': css` 
         background-color: transparent;
-        border-color: white;
-        color: white;
         &>* {
             &>img {
                 filter: invert();
             }
-            &> a {
+            &>a {
                 color: white;
             }
         } 
     `,
     'down': css`
         position: fixed;
-        top: -100px;
-        color: black;
-        &> * > a {
-            color: black;
-        }
+        top: -80px;
     `,
     'up': css`
         background-color: white;
-        border-color: black;
-        &> * > a {
-            color: black;
-        }
     `,
 }
 

@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
 import LeftFooter from './leftFooter';
 import RightFooter from './rightFooter';
-import GlobalColor from '../../layout/globalStyle/globalColor';
+import Color from '../../layout/globalStyle/globalColor';
 
 const footStyle = css`
     width: 100%;
-    background-color: GlobalColor;
+    background-color: ${Color.gray01};
     justify-content: space-around;
     display: flex;
     padding: 5vh 0;

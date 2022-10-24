@@ -1,14 +1,17 @@
 import axios from "axios"
+import { Navigate } from "react-router-dom";
+import User from "../hooks/userInfo";
 
 const LoginAPI = async (email: string, password: string) => {
+    var userId: number|null = null;
     await axios
         .post("/api/login", null, { params: {
             Email: email,
             Password: password,
         }})
         .then((response) => {
-            console.log(response.data);
             alert("Login Success!");
+            userId = response.data
         })
         .catch((error) => {
             if (error.response.data.status === 500) {
@@ -17,7 +20,9 @@ const LoginAPI = async (email: string, password: string) => {
         else {
           alert("Check The network");
         }
-      });       
+    });
+    console.log(userId)
+    return userId      
 }
 
 export default LoginAPI;

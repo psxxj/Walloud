@@ -7,6 +7,7 @@ import InputContainer from '../../layout/container/inputContainer';
 import SignInput from '../../component/input/signInput';
 import SellectInput from '../../component/input/sellectInput';
 import { BankList } from '../../storage/bankList';
+import BasicButton from '../../component/button/basicButton';
 
 function SignUpPage() {
   const [name, SetName] = useState("");
@@ -31,7 +32,7 @@ function SignUpPage() {
               return bank.name;
             })} setType = {SetBank} />
           </InputContainer>
-            <button onClick={onSubmit}> 회원가입 </button>
+          <BasicButton text = "회원가입" onClick = {onSubmit} />
         </MobileContainer>
     </PageContainer>
   );

@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
+import Color from '../../layout/globalStyle/globalColor';
 
 const visualSection = css`
-  background-color:darkcyan;
+  background-color: ${Color.blueClassic};
   color: white;
   font-size: 20px;
 `;
