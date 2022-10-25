@@ -1,6 +1,8 @@
 import { css } from '@emotion/react'
+import { useRecoilValue } from 'recoil'
 import ScrollNavi from '../../animation/scrollNavi';
 import Color from '../../layout/globalStyle/globalColor';
+import { userState } from '../../recoils/user';
 import NavMenu from './navMenu';
 import NavUtil from './navUtil';
 
@@ -58,7 +60,7 @@ function NavBar(){
         <a href='/'>
             <img src = 'source/assets/logo-main.svg'/>
         </a> 
-        <NavMenu />
+        { useRecoilValue(userState).isLogin ? <div> 로그인됨 </div> : <NavMenu />}
         <NavUtil />
     </div>
     );

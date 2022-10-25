@@ -1,9 +1,7 @@
 import axios from "axios"
-import { Navigate } from "react-router-dom";
-import User from "../hooks/userInfo";
+import { atom, selector, selectorFamily, useRecoilValue, useSetRecoilState } from "recoil";
 
 const LoginAPI = async (email: string, password: string) => {
-    var userId: number|null = null;
     await axios
         .post("/api/login", null, { params: {
             Email: email,
@@ -11,7 +9,6 @@ const LoginAPI = async (email: string, password: string) => {
         }})
         .then((response) => {
             alert("Login Success!");
-            userId = response.data
         })
         .catch((error) => {
             if (error.response.data.status === 500) {
@@ -21,8 +18,6 @@ const LoginAPI = async (email: string, password: string) => {
           alert("Check The network");
         }
     });
-    console.log(userId)
-    return userId      
 }
 
 export default LoginAPI;

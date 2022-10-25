@@ -7,21 +7,14 @@ import SignInput from '../../component/input/signInput';
 import InputContainer from '../../layout/container/inputContainer';
 import LoginAPI from '../../api/loginAPI';
 import BasicButton from '../../component/button/basicButton';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { userState } from '../../recoils/user';
+import React from 'react';
 
 function SigninPage() {
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
     const navigate = useNavigate();
-
-    const onSubmit = () => {
-        LoginAPI(email, password).then(
-            (response: number|null) => {
-                if (typeof(response) === 'number'){
-                    navigate("/main");
-                } 
-            }
-        );
-    }
 
     return (
         <PageContainer>
@@ -30,7 +23,10 @@ function SigninPage() {
                         <SignInput name = {email} setType = {SetEmail} message = "email"/>
                         <SignInput name = {password} setType = {SetPassword} message = "password"/>
                     </InputContainer>
-                    <BasicButton text = "로그인" onClick = {onSubmit} />
+                    <React.Suspense fallback={<div>Loading...</div>}>
+                        <BasicButton text = "로그인"
+                        onClick = {() => {LoginAPI(email, password)}} />
+                    </React.Suspense>
                 </MobileContainer>
         </PageContainer>
   );

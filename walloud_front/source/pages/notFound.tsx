@@ -17,7 +17,7 @@ function NotFound(){
     <PageContainer>
       <div css = {blankError}>
         <div>
-          비정상적인 접근이 감지되었습니다. 귀하의 디바이스는 추적될 예정입니다.
+          비정상적인 접근이 감지되었습니다.
         </div>
       </div>
     </PageContainer>
