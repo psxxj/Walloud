@@ -1,5 +1,7 @@
 import { css } from "@emotion/react"
 import { Link } from "react-router-dom"
+import { useRecoilValue } from "recoil"
+import { userState } from "../../recoils/user"
 
 const NavMenuWrapper = css`
     float: right;
@@ -18,8 +20,12 @@ const NavMenuWrapper = css`
 function NavMenu(){
     return (
         <div css = {NavMenuWrapper}>
-            <Link to="/divide">DivideByN</Link>
-            <Link to="/about">ABOUT US</Link>
+            {!useRecoilValue(userState).isLogin ?
+            <><Link to="/divide">DivideByN</Link>
+            <Link to="/about">About Us</Link></>
+            : <><Link to="/book">Account Book</Link>
+            <Link to="/feed">Feed</Link>
+            <Link to="/divide">DivideByN</Link></>}
         </div>
     )
 }

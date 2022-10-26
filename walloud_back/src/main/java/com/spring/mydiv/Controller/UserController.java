@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    public int login(UserDto.Login loginUser) {
+    public UserDto.Response login(UserDto.Login loginUser) {
         return userservice.login(loginUser);
     }
 

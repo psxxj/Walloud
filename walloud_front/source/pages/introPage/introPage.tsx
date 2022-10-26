@@ -1,11 +1,10 @@
 import { css } from '@emotion/react'
-import PageContainer from "../layout/container/pageContainer";
-import JoinSection from './introPage/joinSection';
-import VisualSection from "./introPage/visualSection";
+import PageContainer from "../../layout/container/pageContainer";
+import JoinSection from './joinSection';
+import VisualSection from "./visualSection";
 
 function IntroPage() {
   return (
-    <PageContainer>
       <div css = {{
         '&>div': {
           display: 'flex',
@@ -18,7 +17,6 @@ function IntroPage() {
         <VisualSection />
         <JoinSection />
       </div>
-    </PageContainer>
   );
 }
 

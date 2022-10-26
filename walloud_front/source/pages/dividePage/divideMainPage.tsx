@@ -8,17 +8,17 @@ const blankError = css`
   align-items: center;
   justify-content: center;
   display: flex;
-  color: yellow;
+  color: pink;
 `;
 
-function NotFound(){
+function DivideMainPage(){
   return (
       <div css = {blankError}>
         <div>
-          비정상적인 접근입니다.
+          DivideByN main Page
         </div>
       </div>
   )
 }
 
-export default NotFound;
+export default DivideMainPage;

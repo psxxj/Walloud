@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import PageContainer from "../layout/container/pageContainer";
 
 const blankError = css`
   font-size: 40px;
@@ -8,17 +9,17 @@ const blankError = css`
   align-items: center;
   justify-content: center;
   display: flex;
-  color: yellow;
+  color: pink;
 `;
 
-function NotFound(){
+function MainPage(){
   return (
       <div css = {blankError}>
         <div>
-          비정상적인 접근입니다.
+          로그인 후 메인 로비입니다.
         </div>
       </div>
   )
 }
 
-export default NotFound;
+export default MainPage;

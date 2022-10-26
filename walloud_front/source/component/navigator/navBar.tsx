@@ -55,12 +55,14 @@ let navMode: {[index: string]:any} = {
 
 function NavBar(){
     let screenMode = ScrollNavi();
+    const user = useRecoilValue(userState);
     return (
     <div css = {[navStyle, navMode[screenMode]]}>
         <a href='/'>
             <img src = 'source/assets/logo-main.svg'/>
-        </a> 
-        { useRecoilValue(userState).isLogin ? <div> 로그인됨 </div> : <NavMenu />}
+        </a>
+        {user.isLogin ? <div css = {{color: "red"}}> 안녕하세요, {user.name}님! </div> : <></>} 
+        <NavMenu />
         <NavUtil />
     </div>
     );
