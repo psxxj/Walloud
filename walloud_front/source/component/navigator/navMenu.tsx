@@ -25,7 +25,7 @@ function NavMenu(){
             <Link to="/about">About Us</Link></>
             : <><Link to="/book">Account Book</Link>
             <Link to="/feed">Feed</Link>
-            <Link to="/divide">DivideByN</Link></>}
+            <Link to="/travel">DivideByN</Link></>}
         </div>
     )
 }

@@ -36,15 +36,13 @@ function SigninPage() {
     }
 
     return (
-        <PageContainer>
-            <MobileContainer>
-                    <InputContainer>
-                        <SignInput name = {email} setType = {SetEmail} message = "email"/>
-                        <SignInput name = {password} setType = {SetPassword} message = "password"/>
-                    </InputContainer>
-                    <BasicButton text = "로그인" onClick = {onChange} />
-                </MobileContainer>
-        </PageContainer>
+        <MobileContainer>
+            <InputContainer>
+                <SignInput name = {email} setType = {SetEmail} message = "email"/>
+                <SignInput name = {password} setType = {SetPassword} message = "password"/>
+            </InputContainer>
+            <BasicButton text = "로그인" onClick = {onChange} />
+        </MobileContainer>
   );
 }
 

@@ -21,20 +21,18 @@ function SignUpPage() {
   }
 
   return (
-    <PageContainer>
-        <MobileContainer>
-          <InputContainer>
-            <SignInput name = {name} setType = {SetName} message = "name"/>
-            <SignInput name = {email} setType = {SetEmail} message = "email"/>
-            <SignInput name = {password} setType = {SetPassword} message = "password"/>
-            <SignInput name = {account} setType = {SetAccount} message = "account"/>
-            <SellectInput typeList = {BankList.map((bank, idx) => {
-              return bank.name;
-            })} setType = {SetBank} />
-          </InputContainer>
-          <BasicButton text = "회원가입" onClick = {onSubmit} />
-        </MobileContainer>
-    </PageContainer>
+    <MobileContainer>
+      <InputContainer>
+        <SignInput name = {name} setType = {SetName} message = "name"/>
+        <SignInput name = {email} setType = {SetEmail} message = "email"/>
+        <SignInput name = {password} setType = {SetPassword} message = "password"/>
+        <SignInput name = {account} setType = {SetAccount} message = "account"/>
+        <SellectInput typeList = {BankList.map((bank, idx) => {
+          return bank.name;
+        })} setType = {SetBank} />
+      </InputContainer>
+      <BasicButton text = "회원가입" onClick = {onSubmit} />
+    </MobileContainer>
   );
 }
 

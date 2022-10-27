@@ -4,16 +4,19 @@ import { userState } from '../recoils/user';
 import PageContainer from '../layout/container/pageContainer';
 import SigninPage from '../pages/authentication/signinPage';
 import SignUpPage from '../pages/authentication/signupPage';
-import DivideMainPage from '../pages/dividePage/divideMainPage';
+import TravelMainPage from '../pages/dividePage/travelMainPage';
 import IntroPage from '../pages/introPage/introPage'
 import MainPage from '../pages/mainPage';
 import NotFound from '../pages/notFound';
+import MyPage from '../pages/myPage';
+import { currentTravelState } from '../recoils/travel';
+import TravelPage from '../pages/dividePage/travelPage';
 
 function MainRouter() {
-  console.log(useRecoilValue(userState))
+  // console.log(useRecoilValue(userState))
+  // console.log(useRecoilValue(currentTravelState))
 
   return (
-      <PageContainer>
         <Routes>
           {!useRecoilValue(userState).isLogin ? 
           <>
@@ -22,11 +25,12 @@ function MainRouter() {
             <Route path="/signup" element ={<SignUpPage />} />
           </> : <>
             <Route path="/" element = {<MainPage />}/>
-            <Route path="/divide" element ={<DivideMainPage />} />
+            <Route path="/travel" element ={<TravelMainPage />} />
+            <Route path="/travel/:travelName" element ={<TravelPage />} />
+            <Route path="/mypage" element ={<MyPage />} />
           </>}
           <Route path='/*' element = {<NotFound />} />
         </Routes>
-      </PageContainer>
   )
 }
 

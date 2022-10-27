@@ -59,9 +59,8 @@ function NavBar(){
     return (
     <div css = {[navStyle, navMode[screenMode]]}>
         <a href='/'>
-            <img src = 'source/assets/logo-main.svg'/>
+            <img src = './source/assets/logo-main.svg'/>
         </a>
-        {user.isLogin ? <div css = {{color: "red"}}> 안녕하세요, {user.name}님! </div> : <></>} 
         <NavMenu />
         <NavUtil />
     </div>

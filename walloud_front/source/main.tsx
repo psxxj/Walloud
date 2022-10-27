@@ -4,11 +4,14 @@ import {RecoilRoot, atom, useRecoilState, useRecoilValue} from 'recoil';
 import { BrowserRouter  } from 'react-router-dom'
 import './index.css'
 import MainRouter from './router/mainRouter'
+import PageContainer from './layout/container/pageContainer';
 
 ReactDOM.createRoot(document.getElementById('source') as HTMLElement).render(
   <BrowserRouter>
     <RecoilRoot>
-      <MainRouter />
+      <PageContainer>
+        <MainRouter />
+      </PageContainer>
     </RecoilRoot>
   </BrowserRouter>
 )

@@ -1,4 +1,5 @@
 package com.spring.mydiv.Controller;
+import java.util.List;
 import java.util.Map;
 
 import com.spring.mydiv.Dto.*;
@@ -42,8 +43,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public UserDto.WithTravel getUserInfo(@PathVariable int userId){
-        return userservice.getUserInfoWithTravel(userId);
+    public List<TravelDto.Response> getUserInfo(@PathVariable int userId){
+        return userservice.getUserJoinedTravel(userId);
     }
 
     @PostMapping("/{userId}/createTravel")
