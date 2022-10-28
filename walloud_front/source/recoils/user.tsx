@@ -2,7 +2,6 @@ import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
 export interface UserProps {
-    isLogin: boolean;
     id: number|null;
     name: string|null;
     account: string|null;
@@ -12,10 +11,15 @@ export interface UserProps {
 
 const { persistAtom } = recoilPersist()
 
+export const LoginedState = atom<boolean>({
+    key: 'loginedState',
+    default: false,
+    effects_UNSTABLE: [persistAtom],
+})
+
 export const userState = atom<UserProps>({
         key: 'userState',
         default: {
-            isLogin: false,
             id: null,
             name: null,
             account: null,

@@ -11,12 +11,12 @@ const { persistAtom } = recoilPersist()
 export const currentTravelState = atom<number|null>({
     key: "currentTravel",
     default: null,
-    effects_UNSTABLE: [persistAtom],
+    // effects_UNSTABLE: [persistAtom],
 })
 
-export const travelListState = atom<TravelProps[]|null>({
+export const travelListState = atom<TravelProps[]>({
     key: "travelList",
-    default: null,
-    effects_UNSTABLE: [persistAtom],
+    default: [],
+    effects_UNSTABLE: [persistAtom]
 })
 

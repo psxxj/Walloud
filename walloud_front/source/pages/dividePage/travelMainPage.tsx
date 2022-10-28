@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import GetTravelListAPI from '../../api/getTravelListAPI';
 import TravelBox from '../../component/box/travelBox';
 import { travelListState } from '../../recoils/travel';
@@ -20,28 +20,23 @@ const DivideMainPageStyle = css`
 `;
 
 function TravelMainPage(){
-  const User = useRecoilValue(userState);
-  const [travelList, SetTravelList] = useRecoilState(travelListState);
+  const id = useRecoilValue(userState).id;
+  const [travelList, setTravelList] = useRecoilState(travelListState);
 
-  useEffect(() => { if(travelList === null){
-    GetTravelListAPI(User.id)
-      .then((response) => {
-        SetTravelList(response.data)
-        console.log(response.data)
-      })
-      .catch((error) => {
-        if (error.response.data.status === 500) {
-          alert(error.response.data.message)
-        }
-      })
-  }}, [])
+  useEffect(() => {
+    GetTravelListAPI(id, setTravelList)
+  }, [])
 
   return (
       <div css = {DivideMainPageStyle}>
-        {travelList?.map((travel, idx) => (
-          TravelBox(travel.name, travel.travelId)
-        ))}
+        ㅋㅋㅋㅋㅋ
       </div>
   )
 }
 export default TravelMainPage;
+
+/*
+{travelList?.map((travel, idx) => (
+  TravelBox(travel.name, travel.travelId)
+))}
+*/

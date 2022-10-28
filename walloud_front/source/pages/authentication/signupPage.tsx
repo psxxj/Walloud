@@ -8,6 +8,9 @@ import SignInput from '../../component/input/signInput';
 import SellectInput from '../../component/input/sellectInput';
 import { BankList } from '../../storage/bankList';
 import BasicButton from '../../component/button/basicButton';
+import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { LoginedState, userState } from '../../recoils/user';
 
 function SignUpPage() {
   const [name, SetName] = useState("");
@@ -15,23 +18,24 @@ function SignUpPage() {
   const [password, SetPassword] = useState("");
   const [account, SetAccount] = useState("");
   const [bank, SetBank] = useState("");
-
-  const onSubmit = () => {
-    RegisterAPI(name, email, password, account, bank);
-  }
+  const [valid, SetValid] = useState(false);
+  const setLogined = useSetRecoilState(LoginedState);
+  const setUser = useSetRecoilState(userState);
+  const path = useNavigate();
 
   return (
     <MobileContainer>
       <InputContainer>
-        <SignInput name = {name} setType = {SetName} message = "name"/>
-        <SignInput name = {email} setType = {SetEmail} message = "email"/>
-        <SignInput name = {password} setType = {SetPassword} message = "password"/>
-        <SignInput name = {account} setType = {SetAccount} message = "account"/>
+        <SignInput name = {name} setType = {SetName} message = "name" required = {true}/>
+        <SignInput name = {email} setType = {SetEmail} message = "email" required = {true}/>
+        <SignInput name = {password} setType = {SetPassword} message = "password" required = {true}/>
+        <SignInput name = {account} setType = {SetAccount} message = "account" required = {false}/>
         <SellectInput typeList = {BankList.map((bank, idx) => {
           return bank.name;
         })} setType = {SetBank} />
       </InputContainer>
-      <BasicButton text = "회원가입" onClick = {onSubmit} />
+      <BasicButton text = "회원가입" onClick = {() =>
+      RegisterAPI({userAuth: {email, password, setLogined, setUser, path}, name, account, bank})} />
     </MobileContainer>
   );
 }

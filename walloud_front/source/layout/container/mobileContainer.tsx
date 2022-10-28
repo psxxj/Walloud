@@ -7,7 +7,6 @@ const MobileContainerStyle = css`
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    padding: 20px;
     background-color: blueviolet;
     // background-image: url();
     background-size: cover;
