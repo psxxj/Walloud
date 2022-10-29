@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil'
 import ScrollNavi from '../../animation/scrollNavi';
 import Color from '../../layout/globalStyle/globalColor';
 import { userState } from '../../recoils/user';
+import Logo from '../image/logo';
 import NavMenu from './navMenu';
 import NavUtil from './navUtil';
 
@@ -22,10 +23,10 @@ const navStyle = css`
         align-items: center;
         padding: 0 20px;
         &>img {
-            height: 65px;
+            filter: invert()
         }
         &>a {
-            color: black;
+            color: white;
             &:hover {
                 color: ${Color.gray05};
             }
@@ -35,14 +36,6 @@ const navStyle = css`
 let navMode: {[index: string]:any} = {
     'top': css` 
         background-color: transparent;
-        &>* {
-            &>img {
-                filter: invert();
-            }
-            &>a {
-                color: white;
-            }
-        } 
     `,
     'down': css`
         position: fixed;
@@ -50,17 +43,22 @@ let navMode: {[index: string]:any} = {
     `,
     'up': css`
         background-color: white;
+        &>* {
+            &>img {
+                filter: none;
+            }
+            &>a {
+                color: black;
+            }
+        } 
     `,
 }
 
 function NavBar(){
     let screenMode = ScrollNavi();
-    const user = useRecoilValue(userState);
     return (
     <div css = {[navStyle, navMode[screenMode]]}>
-        <a href='/'>
-            <img src = './source/assets/logo-main.svg'/>
-        </a>
+        {Logo('70px', '')}
         <NavMenu />
         <NavUtil />
     </div>

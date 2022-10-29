@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import Color from '../globalStyle/globalColor';
 
 const MobileContainerStyle = css`
     display: flex;
@@ -7,7 +8,7 @@ const MobileContainerStyle = css`
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: blueviolet;
+    background-color: ${Color.blue02};
     // background-image: url();
     background-size: cover;
     background-repeat: no-repeat;

@@ -14,12 +14,10 @@ const ButtonStyle = css`
     font-family: sans-serif;
     font-weight: 100;
     max-height: 50px;
-    max-width: 100px;
     min-width: 80px;
     font-size: 100%;
     &:hover {
         opacity: 70%;
-        color: ${Color.illuminate};
     }
 `
 interface IProps {

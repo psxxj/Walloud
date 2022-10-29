@@ -1,6 +1,7 @@
 import { css } from "@emotion/react"
 import { Link } from "react-router-dom"
-import { useRecoilValue } from "recoil"
+import { useRecoilValue, useResetRecoilState } from "recoil"
+import { eventListState } from "../../recoils/travel"
 import { LoginedState } from "../../recoils/user"
 
 const NavMenuWrapper = css`

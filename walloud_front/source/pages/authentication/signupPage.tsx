@@ -12,6 +12,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { LoginedState, userState } from '../../recoils/user';
 
+const registerButtonStyle = css`
+    &>button {
+        width: 314px;
+        border-radius: 5px;
+    }
+`
+
 function SignUpPage() {
   const [name, SetName] = useState("");
   const [email, SetEmail] = useState("");
@@ -34,8 +41,10 @@ function SignUpPage() {
           return bank.name;
         })} setType = {SetBank} />
       </InputContainer>
-      <BasicButton text = "회원가입" onClick = {() =>
-      RegisterAPI({userAuth: {email, password, setLogined, setUser, path}, name, account, bank})} />
+      <div css = {registerButtonStyle}>
+        <BasicButton text = "가입하기" onClick = {() =>
+        RegisterAPI({userAuth: {email, password, setLogined, setUser, path}, name, account, bank})} />
+      </div>
     </MobileContainer>
   );
 }

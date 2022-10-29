@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import GetTravelListAPI from '../../api/getTravelListAPI';
 import TravelBox from '../../component/box/travelBox';
+import Color from '../../layout/globalStyle/globalColor';
 import { travelListState } from '../../recoils/travel';
 import { userState } from '../../recoils/user';
 
 const DivideMainPageStyle = css`
   font-size: 40px;
-  background-color: darkgoldenrod;
+  background-color: ${Color.blue02};
   width: 100vw;
   height: 100vh;
   align-items: center;
@@ -29,7 +30,9 @@ function TravelMainPage(){
 
   return (
       <div css = {DivideMainPageStyle}>
-        ㅋㅋㅋㅋㅋ
+        {travelList.map((travel, idx) => (
+        TravelBox(travel.name, travel.travelId)
+        ))}
       </div>
   )
 }

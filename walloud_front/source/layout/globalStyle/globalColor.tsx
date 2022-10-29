@@ -13,10 +13,17 @@ const Color = {
     gray11: "#191919",
     black: "#000000",
 
-    illuminate: "#f7ca00",
-    veryperi: "#6667ab",
-    serenity: "#93a9d1",
-    blueClassic: "#0f4c81"
+    blueClassic: "#0f4c81",
+    blue01: "#50bcdf",
+    blue02: "#437299",
+    blue03: "#0067a3",
+    blue04: "#00498c",
+    blue05: "#003458",
+
+    red01: "#dc143c",
+    red02: "#800000",
+
+    yellow: "#7c6c14",
 }
 
 export default Color;
