@@ -2,8 +2,8 @@ import axios from "axios"
 import { SetterOrUpdater, useRecoilState } from "recoil";
 import { TravelProps } from "../recoils/travel";
 
-const GetTravelListAPI = async (id: number, setTravelList: SetterOrUpdater<TravelProps[]>) => {
-    axios.get(`/api/${id}`)
+const GetTravelListAPI = async (userId: number, setTravelList: SetterOrUpdater<TravelProps[]>) => {
+    axios.get(`/api/${userId}`)
         .then((response) => {
             setTravelList(response.data)
         })

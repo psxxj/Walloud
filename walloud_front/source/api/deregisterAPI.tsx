@@ -9,7 +9,6 @@ const DeregisterAPI = async (user_id: string) => {
         .catch((error) => {
             if (error.response.data.status === 500) {
                 alert(error.response.data.message);
-                window.location.reload();
             }
         });
 };

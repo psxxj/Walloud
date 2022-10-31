@@ -68,4 +68,9 @@ public class TravelController {
         else throw new DefaultException(ErrorCode.INVALID_DELETE_NOTSUPERUSER);
     }
 
+    @DeleteMapping("/{travelId}/delete")
+    public void deleteTravel2(@PathVariable int travelId) {
+        travelservice.deleteTravel(travelId);
+    }
+
 }
