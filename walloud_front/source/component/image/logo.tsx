@@ -8,7 +8,7 @@ function Logo(height: any, color: any){
 
     return (
         <a href='/'>
-            <img src = './source/assets/logo-main.svg'
+            <img src = '/source/assets/logo-main.svg'
             css = {LogoStyle}/>
         </a>
     );

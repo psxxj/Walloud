@@ -5,7 +5,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import GetTravelListAPI from '../../api/getTravelListAPI';
 import TravelBox from '../../component/box/travelBox';
 import Color from '../../layout/globalStyle/globalColor';
-import { travelListState } from '../../recoils/travel';
+import { currentTravelState, travelListState } from '../../recoils/travel';
 import { userState } from '../../recoils/user';
 
 const DivideMainPageStyle = css`
@@ -23,23 +23,20 @@ const DivideMainPageStyle = css`
 function TravelMainPage(){
   const id = useRecoilValue(userState).id;
   const [travelList, setTravelList] = useRecoilState(travelListState);
+  const [currentTravel, SetCurrentTravel] = useRecoilState(currentTravelState);
 
   useEffect(() => {
-    GetTravelListAPI(id, setTravelList)
-  }, [])
+    GetTravelListAPI(id, setTravelList)}
+  , [])
 
   return (
       <div css = {DivideMainPageStyle}>
         {travelList.map((travel, idx) => (
-        TravelBox(travel.name, travel.travelId)
+          TravelBox(travel.name, travel.travelId, SetCurrentTravel)
         ))}
       </div>
   )
+
+  
 }
 export default TravelMainPage;
-
-/*
-{travelList?.map((travel, idx) => (
-  TravelBox(travel.name, travel.travelId)
-))}
-*/

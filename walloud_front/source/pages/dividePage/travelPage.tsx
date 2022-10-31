@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import GetTravelDetailAPI from '../../api/getTravelDetailAPI';
 import Color from '../../layout/globalStyle/globalColor';
-import { currentTravelState, eventListState, personListState, travelListState } from '../../recoils/travel';
+import { currentTravelState, eventListState, personListState } from '../../recoils/travel';
 import { UserProps, userState } from '../../recoils/user';
 import EventsSection from './eventsSection';
 import PersonSection from './personSection';
@@ -18,7 +18,7 @@ const DivideMainPageStyle = css`
   justify-content: center;
   display: flex;
   color: white;
-  gap: 30px;
+  gap: 5vw;
   &>div {
     width: 40vw;
     min-width: 400px;
@@ -28,7 +28,7 @@ const DivideMainPageStyle = css`
   }
 `;
 
-function TravelMainPage(){
+function TravelPage(){
     const {travelName} = useParams();
     const userId = useRecoilValue(userState).id;
     const travelId = useRecoilValue(currentTravelState);
@@ -42,11 +42,11 @@ function TravelMainPage(){
 
     return (
         <div css = {DivideMainPageStyle}>
-          {EventsSection(eventList)}
+          {/*EventsSection(eventList)*/}
           {PersonSection(personList)}
         </div>
   )
 }
-export default TravelMainPage;
+export default TravelPage;
 
 // moment.tz(event.date, "Asia/Seoul").format().substring(5, 10)

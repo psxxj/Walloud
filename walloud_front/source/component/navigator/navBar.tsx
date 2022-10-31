@@ -1,8 +1,6 @@
 import { css } from '@emotion/react'
-import { useRecoilValue } from 'recoil'
 import ScrollNavi from '../../animation/scrollNavi';
 import Color from '../../layout/globalStyle/globalColor';
-import { userState } from '../../recoils/user';
 import Logo from '../image/logo';
 import NavMenu from './navMenu';
 import NavUtil from './navUtil';
@@ -12,7 +10,7 @@ const navStyle = css`
     left: 0;
     top: 0;
     height: 70px;
-    min-width: 100%;
+    width: 100%;
     padding: 5px 0px;
     display: inline-flex;
     z-index: 1000;

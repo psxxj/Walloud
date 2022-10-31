@@ -29,6 +29,14 @@ const loginButtonStyle = css`
         width: 314px;
         border-radius: 5px;
     }
+    &>div {
+        padding-top: 15px;
+        width: 314px;
+        text-align: center;
+        &>span{
+            padding: 0 5px;
+        }
+    }
 `
 
 function SigninPage() {
@@ -41,17 +49,22 @@ function SigninPage() {
     return (
         <MobileContainer>
             <div css = {catchPharseStyle}>
-                <div><span css = {{color: `${Color.blue05}`, fontWeight: 700}} >일</span>상을 그리는</div>
+                <div><span css = {{color: `${Color.blue05}`, fontWeight: 700}} >일상</span>을 그리는</div>
                 <div>똑똑한 소비</div>
             </div>
             {Logo('80px', 'invert()')}
             <InputContainer>
-                <SignInput name = {email} setType = {SetEmail} message = "email" required = {false}/>
-                <SignInput name = {password} setType = {SetPassword} message = "password" required = {false}/>
+                <SignInput name = {email} text = "ex) mywalloud@usage.com" setType = {SetEmail} message = "email" required = {false}/>
+                <SignInput name = {password} text = "영문, 숫자, 특수문자 중 2종류 조합: 8~16자" setType = {SetPassword} message = "password" required = {false}/>
             </InputContainer>
             <div css = {loginButtonStyle}>
                 <BasicButton text = "로그인" onClick = {() => 
                 LoginAPI({email, password, setUser, setLogined, path})} />
+                <div>
+                    <span>비밀번호 찾기 </span>
+                    <span>|</span>
+                    <span> 회원가입하기</span>
+                </div>
             </div>
         </MobileContainer>
   );

@@ -159,7 +159,7 @@ public class EventController {
         personService.updatePersonRole(travel_id);
     }
 
-    @GetMapping("/{userid}/{travelid}/{eventid}/detail")
+    @GetMapping("/{eventid}/detail")
     public List<ParticipantDto.detailView> getDetailInEvent(@PathVariable("eventid") int eventid){
         return participantService.getParticipantInEvent(eventid);
     }

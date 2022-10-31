@@ -10,6 +10,8 @@ export const FontSize = {
     fs06: '0.6rem'
 }
 
-export const GlobalScreen = {
-    
+export const ScreenSize = {
+    mobile: '480px',
+    tablet: '768px',
+    pc: '1024px'
 }

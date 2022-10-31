@@ -2,10 +2,11 @@ import axios from "axios"
 import { SetterOrUpdater, useRecoilState } from "recoil";
 import { TravelProps } from "../recoils/travel";
 
-const GetTravelListAPI = async (id: number, setTravelList: SetterOrUpdater<TravelProps[]>) => {
-    axios.get(`/api/${id}`)
+const GetEventPartiAPI = async (id: number, setPartiList: SetterOrUpdater<any[]>) => {
+    axios.get(`/api/${id}/detail`)
         .then((response) => {
-            setTravelList(response.data)
+            setPartiList(response.data)
+            console.log(response.data)
         })
         .catch((error) => {
             if (error.response.data.status === 500) {
@@ -17,4 +18,4 @@ const GetTravelListAPI = async (id: number, setTravelList: SetterOrUpdater<Trave
         })
 }
 
-export default GetTravelListAPI;
+export default GetEventPartiAPI;
