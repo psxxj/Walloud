@@ -27,7 +27,7 @@ interface IProps {
   
 function BasicButton({text, onClick}: IProps){
     return (
-        <button css = {ButtonStyle} onClick = {onClick}> {text} </button>
+        <button css = {ButtonStyle} onClick = {onClick} id = "basic"> {text} </button>
     )
 }
 

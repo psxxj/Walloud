@@ -48,8 +48,8 @@ public class UserController {
     }
 
     @PostMapping("/{userId}/createTravel")
-    public int createTravel(@PathVariable int userId, @RequestBody Map map){
-        TravelDto.Request travelRequest = new TravelDto.Request(map.get("travel_name").toString());
+    public int createTravel(@PathVariable int userId, String travel_name){
+        TravelDto.Request travelRequest = new TravelDto.Request(travel_name);
         PersonDto.Request personRequest = new PersonDto.Request(
                 userservice.getUserInfo(userId),
                 travelservice.createTravel(travelRequest));

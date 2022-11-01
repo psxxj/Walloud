@@ -4,7 +4,7 @@ const DeleteTravelAPI = async (travel_id: number) => {
     await axios
         .delete(`/api/${travel_id}/delete`)
         .then(() => {
-            console.log("삭제되었습니다");
+            alert("여행이 삭제되었습니다");
         })
         .catch((error) => {
             if (error.response.data.status === 500) {

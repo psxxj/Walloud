@@ -44,12 +44,13 @@ public class TravelController {
         return homeView;
     }
 
+    //NEED FIX
     @GetMapping("/{userId}/getSuperUserList")
     public List<TravelDto.Response> getSuperUserTravelList(@PathVariable int userId){
         return travelservice.getSuperUserTravelList(Long.valueOf(userId));
     }
 
-
+    
     @PutMapping("/{userId}/{travelId}/updateTravelInfo")
     public ResponseEntity<TravelDto.Response> updateTravel(@PathVariable int travelId, @RequestBody Map map) {
         TravelDto.Request updateRequest = new TravelDto.Request(map.get("travel_name").toString());
@@ -68,6 +69,7 @@ public class TravelController {
         else throw new DefaultException(ErrorCode.INVALID_DELETE_NOTSUPERUSER);
     }
 
+    //NEW
     @DeleteMapping("/{travelId}/delete")
     public void deleteTravel2(@PathVariable int travelId) {
         travelservice.deleteTravel(travelId);

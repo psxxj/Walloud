@@ -4,10 +4,11 @@ import { SetterOrUpdater } from 'recoil'
 import Color from '../../layout/globalStyle/globalColor';
 import { FontSize } from '../../layout/globalStyle/globalSize';
 import DeleteTravelAPI from '../../api/deleteTravelAPI'
+import FilpCard from '../../animation/flipCard';
 
 const TravelBoxStyle = css`
     height: 240px;
-    width: 20vw;
+    width: 200px;
     min-width: 150px;
     max-width: 200px;
     border-radius: 15px;
@@ -15,27 +16,22 @@ const TravelBoxStyle = css`
     flex-direction: column;
     background-color: white;
     &>a {
-        height: 60%;
+        height: 70%;
         width: 100%;
         display: block;
         font-size: 20px;
         color: black;
         background-color: ${Color.blue05};
-        height: 80%;
         border-radius: 15px 15px 0 0;
     }
     &>div {
-        height: 40%;
+        height: 30%;
         width: 100%;
         perspective: 200px;
         &>div {
-            height: 100%;
-            width: 100%;
-            backface-visibility: hidden;
-            transition: ease 1s;
             font-size: ${FontSize.fs14};
             &>div {
-                padding: 10px 10px;
+                padding: 7px 10px;
             }
             &>button {
                 float: right;
@@ -54,13 +50,6 @@ const TravelBoxStyle = css`
                 }
             }
         }
-        &>.front {
-            position: absolute;
-            transform: rotateY(0deg);
-        }
-        &>.back {
-            transform: rotateY(-180deg);
-        }
     }
 `
 
@@ -70,7 +59,7 @@ function TravelBox(name: string, id: number, SetCurrentTravel: SetterOrUpdater<n
             <a href = {`/travel/${name}`} onClick = {() => {SetCurrentTravel(id)}}>
                 <div> 사진 영역</div>
             </a>
-            <div>
+            <FilpCard>
                 <div className = 'front' id = {id.toString() + " front"}>
                     <div>{name}</div>
                     <button onClick = {() => {
@@ -102,7 +91,7 @@ function TravelBox(name: string, id: number, SetCurrentTravel: SetterOrUpdater<n
                         <img src = "source/assets/icon/edit.svg" />
                     </button>
                 </div>
-            </div>
+            </FilpCard>
         </div>
     )
 }
