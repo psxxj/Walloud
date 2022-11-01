@@ -16,6 +16,7 @@ const DivideMainPageStyle = css`
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 30px 20px;
   &:first-of-type {
     width: 20%;

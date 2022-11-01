@@ -57,9 +57,11 @@ public class PersonController {
         else throw new DefaultException(INVALID_DELETE_EVENTEXISTED);
     }
 
-    @GetMapping("/{userid}/{travelid}/{personid}/personDetail")
+    @GetMapping("{travelid}/{personid}/personDetail")
     public PersonDto.Detail getPersonToDetailView(@PathVariable("travelid") int travelid,
                                                         @PathVariable("personid") int personid){
+        System.out.println(travelid);
+
         PersonDto.Detail detailView = personService.getPersonToDetailView(personid);
         List<EventDto.PersonView> EventList = participantService.getEventListThatPersonJoin(personid);
         detailView.setEventList(EventList);

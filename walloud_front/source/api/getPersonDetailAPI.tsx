@@ -1,8 +1,10 @@
 import axios from "axios"
+import { NonIndexRouteObject } from "react-router-dom";
+import { SetterOrUpdater, useRecoilState } from "recoil";
 import { TravelProps } from "../recoils/travel";
 
-const GetEventPartiAPI = async (id: number) => {
-    axios.get(`/api/${id}/detail`)
+const GetPersonDetailAPI = async (travelId: number, personId: number) => {
+    axios.get(`/api/${travelId}/${personId}/personDetail`)
         .then((response) => {
             console.log(response.data)
         })
@@ -16,4 +18,4 @@ const GetEventPartiAPI = async (id: number) => {
         })
 }
 
-export default GetEventPartiAPI;
+export default GetPersonDetailAPI;

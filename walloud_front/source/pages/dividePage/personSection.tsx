@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import PersonBox from "../../component/box/personBox";
 import { FontSize } from "../../layout/globalStyle/globalSize";
 
-function PersonSection(personList: any[]) {
+function PersonSection(personList: any[], travelId: number) {
     const personLength = personList.length
 
     const PersonSectionStyle = css`
@@ -14,11 +14,7 @@ function PersonSection(personList: any[]) {
     }
     &>:nth-child(2) {
         display: grid;
-
         grid-template-columns: ${personLength < 4 ? "1fr 1fr" : "1fr 1fr 1fr"};
-    }
-    .Manager {
-        border: 1px solid white;
     }
 `
 
@@ -30,7 +26,7 @@ function PersonSection(personList: any[]) {
                 (person.difference < 0 && type === "Send"))
             .map(
                 (selectPerson, idx) => {
-                    return PersonBox(selectPerson, idx, type)
+                    return PersonBox(selectPerson, selectPerson.personId, type, travelId)
                 }
             )
         return PersonBoxs

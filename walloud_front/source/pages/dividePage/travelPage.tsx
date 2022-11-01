@@ -13,7 +13,7 @@ const DivideMainPageStyle = css`
   font-size: 40px;
   background-color: ${Color.blueClassic};
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -42,8 +42,10 @@ function TravelPage(){
 
     return (
         <div css = {DivideMainPageStyle}>
-          {/*EventsSection(eventList)*/}
-          {PersonSection(personList)}
+          {/*ViewSection(period, travelName)*/}
+          {EventsSection(eventList)}
+          {/*TravelDetailSection(Map, Calendar, etc.)*/}
+          {PersonSection(personList, travelId)}
         </div>
   )
 }

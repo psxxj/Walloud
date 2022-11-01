@@ -2,7 +2,7 @@ import { css, SerializedStyles } from "@emotion/react"
 import Color from "../layout/globalStyle/globalColor";
 
 const FlipCardStyle = css`
-    perspective: 200px;
+    perspective: 250px;
     &>div {
         height: 100%;
         width: 100%;

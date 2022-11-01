@@ -6,8 +6,8 @@ import Color from "../../layout/globalStyle/globalColor";
 import { FontSize } from "../../layout/globalStyle/globalSize";
 
 function EventsDetail(event: any, idx: number){
-    const [isDetailView, setIsDetailView] = useState(false);
-    const [partiList, setPartiList] = useState([]);
+    var isDetailView = true;
+    const partiList = [{name: "임시", chargedPrice: event.price}]
 
     const EventsRowStyle = css`
         &>a {
@@ -52,8 +52,8 @@ function EventsDetail(event: any, idx: number){
     return (
         <>
             <div key = {idx} className = 'event-row' css = {EventsRowStyle}>
-                <a onClick = {() => {setIsDetailView(!isDetailView);
-                GetEventPartiAPI(event.eventId, setPartiList)}}>
+                <a onClick = {() => {isDetailView = !isDetailView;
+                GetEventPartiAPI(event.eventId)}}>
                 </a>
                 <span>{event.name}</span>
                 <span>{event.price.toLocaleString()}₩</span>
