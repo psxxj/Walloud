@@ -1,13 +1,13 @@
-import { css } from '@emotion/react'
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import GetTravelListAPI from '../../api/getTravelListAPI';
-import TravelBox from '../../component/box/travelBox';
-import TravelCreateBox from '../../component/box/travelCreateBox';
-import Color from '../../layout/globalStyle/globalColor';
-import { currentTravelState, travelListState } from '../../recoils/travel';
-import { userState } from '../../recoils/user';
+import { css } from "@emotion/react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import GetTravelListAPI from "../../api/getTravelListAPI";
+import TravelBox from "../../component/box/travelBox";
+import TravelCreateBox from "../../component/box/travelCreateBox";
+import Color from "../../layout/globalStyle/globalColor";
+import { currentTravelState, travelListState } from "../../recoils/travel";
+import { userState } from "../../recoils/user";
 
 const DivideMainPageStyle = css`
   background-color: ${Color.blue02};
@@ -23,25 +23,23 @@ const DivideMainPageStyle = css`
   }
 `;
 
-function TravelMainPage(){
+function TravelMainPage() {
   const id = useRecoilValue(userState).id;
   const [travelList, setTravelList] = useRecoilState(travelListState);
   const [currentTravel, SetCurrentTravel] = useRecoilState(currentTravelState);
 
   useEffect(() => {
-    GetTravelListAPI(id, setTravelList)}
-  , [])
+    GetTravelListAPI(id, setTravelList);
+  }, []);
 
   return (
-      <div css = {DivideMainPageStyle}>
-        {TravelCreateBox()}
-        {travelList.map((travel, idx) => (
-          TravelBox(travel.name, travel.travelId, SetCurrentTravel)
-        ))}
-      </div>
-  )
-
-  
+    <div css={DivideMainPageStyle}>
+      {TravelCreateBox()}
+      {travelList.map((travel, idx) =>
+        TravelBox(travel.name, travel.travelId, SetCurrentTravel)
+      )}
+    </div>
+  );
 }
 export default TravelMainPage;
 
