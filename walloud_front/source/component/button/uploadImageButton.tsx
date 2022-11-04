@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-const UploadImageButton = () => {
+const UploadImageButton = (id: { id: number }) => {
   const onChangeInput = (e: any) => {
     var file: File = e.target.files[0];
     var reader: FileReader = new FileReader();
@@ -12,9 +12,9 @@ const UploadImageButton = () => {
       image.style.width = "100%";
       image.style.borderTopLeftRadius = "15px";
       image.style.borderTopRightRadius = "15px";
-      document.getElementById("travel-image").appendChild(image);
+      document.getElementById(`${id.id}-image`).appendChild(image);
     };
-    console.log(document.getElementById("travel-image"));
+    console.log(document.getElementById(`${id.id}-image`));
   };
 
   return (
@@ -22,10 +22,10 @@ const UploadImageButton = () => {
       <img
         alt="upload"
         src="source/assets/icon/upload.svg"
-        onClick={() => document.getElementById("upload").click()}
+        onClick={() => document.getElementById(`${id.id}-upload`).click()}
       />
       <input
-        id="upload"
+        id={`${id.id}-upload`}
         type="file"
         accept=".jpeg, .jpg, .png"
         style={{ display: "none" }}

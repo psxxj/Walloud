@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
-import { SetterOrUpdater, useRecoilValue } from "recoil";
+import { atom, SetterOrUpdater, useRecoilState, useRecoilValue } from "recoil";
 import Color from "../../layout/globalStyle/globalColor";
 import { FontSize } from "../../layout/globalStyle/globalSize";
 import DeleteTravelAPI from "../../api/deleteTravelAPI";
@@ -77,39 +77,48 @@ const TravelBoxStyle = css`
 function TravelBox(
   travelName: string,
   id: number,
-  SetCurrentTravel: SetterOrUpdater<number>
+  setCurrentTravel: SetterOrUpdater<number>,
+  onClickEdit: { (id: number): void; (arg0: number): void },
+  isEditMode: number | null
 ) {
-  const User = useRecoilValue(userState);
-  const [isEditMode, setIsEditMode] = useState<boolean>(false);
-  const [name, setName] = useState<string>(travelName);
+  // const editModeAtom = atom({
+  //   key: "isEditMode",
+  //   default: false,
+  // });
 
-  function onClickEdit(id: number) {
-    if (isEditMode) {
-      const newName: string = (
-        document.getElementById("input-name") as HTMLInputElement
-      ).value;
-      setName(newName);
-      UpdateTravelAPI(User.id, id, newName);
-      console.log(User.id, id, newName);
-    }
+  // const nameAtom = atom({
+  //   key: "name",
+  //   default: travelName,
+  // });
+  // const [isEditMode, setIsEditMode] = useRecoilState<boolean>(editModeAtom);
+  // const [name, setName] = useRecoilState<string>(nameAtom);
 
-    setIsEditMode(!isEditMode);
-  }
+  // function onClickEdit(id: number) {
+  //   if (isEditMode) {
+  //     const newName: string = (
+  //       document.getElementById("input-name") as HTMLInputElement
+  //     ).value;
+  //     setName(newName);
+  //     UpdateTravelAPI(User.id, id, newName);
+  //     console.log(User.id, id, newName);
+  //   }
+  //   setIsEditMode(!isEditMode);
+  // }
+  const name = travelName;
 
   return (
     <div css={TravelBoxStyle} key={id}>
       <a
         href={`/travel/${name}`}
         onClick={() => {
-          SetCurrentTravel(id);
+          setCurrentTravel(id);
         }}
-      >
-        <div id="travel-image"></div>
-      </a>
-      <UploadImageButton />
+      ></a>
+      <div id={`${id}-image`}></div>
+      <UploadImageButton id={id} />
       <FilpCard>
         <div className="front" id={id.toString() + " front"}>
-          <div>{name}</div>
+          <div id={`${id}-front-name`}>{name}</div>
           <button
             onClick={() => {
               var front = document.getElementById(id.toString() + " front");
@@ -122,10 +131,10 @@ function TravelBox(
           </button>
         </div>
         <div className="back" id={id.toString() + " back"}>
-          {isEditMode ? (
+          {isEditMode === id ? (
             <input
               placeholder={name}
-              id="input-name"
+              id={`${id}-input-name`}
               defaultValue={name}
               autoFocus
               onKeyDown={(event) =>
@@ -133,7 +142,7 @@ function TravelBox(
               }
             />
           ) : (
-            <div>{name}</div>
+            <div id={`${id}-back-name`}>{name}</div>
           )}
           <button
             onClick={() => {
@@ -141,7 +150,7 @@ function TravelBox(
               front.style.transform = "rotateY(0deg)";
               var back = document.getElementById(id.toString() + " back");
               back.style.transform = "rotateY(-180deg)";
-              setIsEditMode(false);
+              // setIsEditMode(false);
             }}
           >
             <img alt="return" src="source/assets/icon/return.svg" />
